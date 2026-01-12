@@ -304,7 +304,7 @@ function App() {
           <li><strong>Email:</strong> <a href="mailto:bbichchal@gmail.com">bbichchal@gmail.com</a></li>
           <li><strong>Phone:</strong> +353 892128290</li>
           <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/bbichchal" target="_blank" rel="noreferrer">linkedin.com/in/bbichchal</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/Bhagyalakshmi09" target="_blank" rel="noreferrer">github.com/Bhagyalakshmi09</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/Bhagyalakshmi09" target="_blank" rel="noreferrer">github.com/bhagyalakshmi09</a></li>
         </ul>
         <a className="btn" href="resume.pdf" download>Download Resume</a>
       </section>
