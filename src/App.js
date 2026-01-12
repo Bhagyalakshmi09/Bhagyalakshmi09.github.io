@@ -301,10 +301,10 @@ function App() {
         <h2><TypeWriter text="Contact" speed={80} /></h2>
         <p>Let's connect! Feel free to reach me via email or LinkedIn.</p>
         <ul className="contact-list">
-          <li><strong>Email:</strong> <a href="mailto:bhagyabichchal@example.com">bhagyabichchal@example.com</a></li>
+          <li><strong>Email:</strong> <a href="mailto:bbichchal@gmail.com">bbichchal@gmail.com</a></li>
           <li><strong>Phone:</strong> +353 892128290</li>
-          <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">linkedin.com/in/yourprofile</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">github.com/yourusername</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/bbichchal" target="_blank" rel="noreferrer">linkedin.com/in/bbichchal</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/Bhagyalakshmi09" target="_blank" rel="noreferrer">github.com/Bhagyalakshmi09</a></li>
         </ul>
         <a className="btn" href="resume.pdf" download>Download Resume</a>
       </section>
