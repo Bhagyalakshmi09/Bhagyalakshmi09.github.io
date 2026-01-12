@@ -1,0 +1,365 @@
+
+/* Define theme variables for colors and fonts */
+:root {
+  /*
+    Terminal style palette
+    Vibrant green and mint accent colours evoke a classic terminal aesthetic while
+    still feeling fresh. A dark background and monochrome fonts complete the look.
+  */
+  --primary-color: #39ff14; /* electric green */
+  --secondary-color: #88ffcc; /* mint green */
+  --accent-color: #00bfff; /* cyan accent for links and highlights */
+  --bg-color: #0a0f17; /* very dark background */
+  --card-bg: #0d1925; /* dark blue/gray card background */
+  --text-color: #c5fcca; /* light sea green text */
+  --font-heading: 'Fira Code', monospace;
+  --font-body: 'IBM Plex Mono', monospace;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  /* Ensure text rendering is crisp */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+  The hero section uses a diagonal gradient based on the primary and secondary colours,
+  layered underneath a subtle background image. This creates depth while keeping the
+  focus on the heading and tagline. The overlay ensures particle effects and text
+  remain readable on top of the gradient.
+*/
+.hero {
+  position: relative;
+  /* Solid background for terminal look */
+  background-image: none;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Large playful heading for the hero */
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+}
+
+/* Subtitle in hero with a balanced size relative to the new heading */
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+  color: var(--secondary-color);
+}
+
+/* Social icon colours aligned with the accent colour */
+.social-links a {
+  margin: 0 10px;
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Position particles behind overlay and content */
+.particles-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Fade-in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-section,
+.skills-section,
+.projects-section,
+.experience-section,
+.education-section,
+.contact-section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.3s;
+}
+
+/* Slight delays for sequential reveal */
+.skills-section { animation-delay: 0.4s; }
+.projects-section { animation-delay: 0.5s; }
+.experience-section { animation-delay: 0.6s; }
+.education-section { animation-delay: 0.7s; }
+.contact-section { animation-delay: 0.8s; }
+
+/* A sticky navigation bar with a semi‑transparent backdrop that blends into the hero */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(10, 15, 23, 0.95);
+  padding: 10px 20px;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+/* Navigation links adopt the accent colour on hover */
+.navbar a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+section h2 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+}
+
+.about-section p {
+  line-height: 1.6;
+}
+
+/* Responsive grid for skills cards */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Card styling handled by .skill-card */
+
+
+.skills-grid h3 {
+  margin-top: 0;
+  color: var(--secondary-color);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+/* Remove default list styling and add subtle bullet icons to skills */
+.skills-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-grid li {
+  margin-bottom: 5px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.skills-grid li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+
+/* Heading colours for dynamic cards */
+.job-card h3, .degree-card h3, .project-card h3, .skill-card h3 {
+  margin-top: 0;
+  color: var(--secondary-color);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+/* Meta text styling for dynamic cards */
+.job-card span, .degree-card span, .project-card .project-date {
+  display: block;
+  font-size: 0.9rem;
+  color: #8b949e;
+  margin-bottom: 10px;
+}
+
+/* Bullet styling for job responsibilities */
+.job-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.job-card li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 25px;
+}
+
+.job-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+.contact-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-section li {
+  margin-bottom: 10px;
+}
+
+.contact-section a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-section a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.contact-section .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-section .btn:hover {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Grid and card styling for dynamic sections */
+.projects-grid,
+.experience-grid,
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.skill-card,
+  .project-card,
+  .job-card,
+  .degree-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover,
+.project-card:hover,
+.job-card:hover,
+.degree-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Additional styling for project card details */
+.project-card {
+  cursor: pointer;
+}
+
+.project-card .project-date {
+  display: block;
+  font-size: 0.9rem;
+  color: #8b949e;
+  margin-bottom: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(1, 4, 9, 0.9);
+  color: #8b949e;
+  font-family: var(--font-body);
+}
+
+/* Typing cursor animation */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  border-right: 2px solid var(--primary-color);
+  animation: blink 1s steps(1) infinite;
+}
